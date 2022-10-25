@@ -25,17 +25,30 @@ public class PlayerMovement : MonoBehaviour
     float jumpCooldown;
     [SerializeField]
     float groundDrag;
+
+    Animator anim;
+    SpriteRenderer render;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         readyToJump = Physics2D.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        anim = GetComponent<Animator>();
+        render = GetComponent<SpriteRenderer>();
     }
 
 
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
+        if(horizontalInput > 0 )
+        {
+            render.flipX = false;
+        }
+        else if(horizontalInput < 0)
+        {
+            render.flipX = true;
+        }
 
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {  
@@ -84,6 +97,22 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         grounded = Physics2D.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.magnitude));
+        if(rb.velocity.y < 0)
+        {
+            anim.SetBool("IsFalling", true);
+            anim.SetBool("IsJumping", false);
+        }
+        else if(rb.velocity.y > 0)
+        {
+            anim.SetBool("IsFalling", false);
+            anim.SetBool("IsJumping", true);
+        }
+        else
+        {
+             anim.SetBool("IsFalling", false);
+             anim.SetBool("IsJumping", false);
+        }
         MyInput();
 
          if(grounded)
