@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6402947117557852607}
   - component: {fileID: 6402947117557852604}
   - component: {fileID: 6402947117557852606}
-  - component: {fileID: 2295786226226009687}
+  - component: {fileID: 340102783}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -178,7 +178,7 @@ MonoBehaviour:
   playerHeight: 0.5
   jumpCooldown: 0.5
   groundDrag: 8
---- !u!114 &2295786226226009687
+--- !u!114 &340102783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6402947117557852592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f28fe8a91c790a458b5a755aba5e487, type: 3}
+  m_Script: {fileID: 11500000, guid: 188a5ce8b2d9dfd44b0ba251dd361caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  health: 1
