@@ -5,7 +5,7 @@ using UnityEngine;
 public class Killable : MonoBehaviour, IKillable
 {
     [SerializeField]
-    int health;
+    public int health;
     
     public void ApplyDamage(int damage)
     {
