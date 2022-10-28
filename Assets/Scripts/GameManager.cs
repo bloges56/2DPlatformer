@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
             if(player.GetComponent<PlayerMovement>().win)
             {
                 winText.SetActive(true);
+                Time.timeScale = 0;
             }
         }
         else
