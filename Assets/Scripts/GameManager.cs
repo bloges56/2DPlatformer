@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     TMP_Text healthText;
+
+    [SerializeField]
+    GameObject loseText;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,10 @@ public class GameManager : MonoBehaviour
         if(player)
         {
             healthText.SetText(player.GetComponent<Killable>().health.ToString());
+        }
+        else
+        {
+            loseText.SetActive(true);
         }
     }
 }
