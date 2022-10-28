@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     GameObject loseText;
+    [SerializeField]
+    GameObject winText;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,10 @@ public class GameManager : MonoBehaviour
         if(player)
         {
             healthText.SetText(player.GetComponent<Killable>().health.ToString());
+            if(player.GetComponent<PlayerMovement>().win)
+            {
+                winText.SetActive(true);
+            }
         }
         else
         {

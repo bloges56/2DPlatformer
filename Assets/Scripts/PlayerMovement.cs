@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     Animator anim;
     SpriteRenderer render;
+
+    public bool win;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.tag == "Goal")
+        {
+            win = true;
+        }
+    }
 
     private void MyInput()
     {
