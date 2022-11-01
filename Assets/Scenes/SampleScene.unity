@@ -1399,32 +1399,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247423800}
   m_CullTransparentMesh: 1
---- !u!1 &1248338001 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3029208721573584833, guid: 6e4519e4f122b034984fa8d6d41d14af, type: 3}
-  m_PrefabInstance: {fileID: 3029208720099568312}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1248338006
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248338001}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &1293155413
 GameObject:
   m_ObjectHideFlags: 0
@@ -6695,14 +6669,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3029208721573584838, guid: 6e4519e4f122b034984fa8d6d41d14af, type: 3}
-      propertyPath: damage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3029208721573584838, guid: 6e4519e4f122b034984fa8d6d41d14af, type: 3}
-      propertyPath: damageForce
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e4519e4f122b034984fa8d6d41d14af, type: 3}
 --- !u!1001 &6402947117897230277
@@ -6712,6 +6678,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 340102783, guid: 4cf5802d19dfe5248af7bb2630a0383e, type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6402947117557852592, guid: 4cf5802d19dfe5248af7bb2630a0383e, type: 3}
       propertyPath: m_Name
       value: Player
