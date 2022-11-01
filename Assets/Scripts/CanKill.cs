@@ -5,4 +5,6 @@ using UnityEngine;
 public class CanKill: MonoBehaviour
 {
     public int damage;
+
+    public int damageForce;
 }

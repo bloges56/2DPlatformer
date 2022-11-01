@@ -6,6 +6,8 @@ public class Killable : MonoBehaviour, IKillable
 {
     [SerializeField]
     public int health;
+
+    Rigidbody2D rb;
     
     public void ApplyDamage(int damage)
     {
@@ -16,10 +18,14 @@ public class Killable : MonoBehaviour, IKillable
     {
         Destroy(this.gameObject);
     }
-    // Start is called before the first frame update
-    void Start()
+
+    private void ApplyForce(GameObject enemy)
     {
+        rb.velocity = new Vector3(0f, 0f, 0f);
+        Vector3 forceDirection = this.transform.position - enemy.transform.position;
+        rb.velocity = forceDirection * enemy.GetComponent<CanKill>().damageForce;
         
+
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -27,9 +33,14 @@ public class Killable : MonoBehaviour, IKillable
         {
             
             ApplyDamage(other.gameObject.GetComponent<CanKill>().damage);
+            ApplyForce(other.gameObject);
         }
     }
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()

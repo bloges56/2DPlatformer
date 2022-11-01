@@ -554,7 +554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9223366, y: -1.8593099, z: -10}
+  m_LocalPosition: {x: -0.8094206, y: -1.85942, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1399,6 +1399,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247423800}
   m_CullTransparentMesh: 1
+--- !u!1 &1248338001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3029208721573584833, guid: 6e4519e4f122b034984fa8d6d41d14af, type: 3}
+  m_PrefabInstance: {fileID: 3029208720099568312}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1248338006
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248338001}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1293155413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,6 +1910,14 @@ PrefabInstance:
     - target: {fileID: 3029208721573584837, guid: 6e4519e4f122b034984fa8d6d41d14af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029208721573584838, guid: 6e4519e4f122b034984fa8d6d41d14af, type: 3}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029208721573584838, guid: 6e4519e4f122b034984fa8d6d41d14af, type: 3}
+      propertyPath: damageForce
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e4519e4f122b034984fa8d6d41d14af, type: 3}
