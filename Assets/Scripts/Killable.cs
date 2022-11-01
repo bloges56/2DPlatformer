@@ -8,6 +8,8 @@ public class Killable : MonoBehaviour, IKillable
     public int health;
 
     Rigidbody2D rb;
+
+    ParticleSystem ps;
     
     public void ApplyDamage(int damage)
     {
@@ -31,7 +33,7 @@ public class Killable : MonoBehaviour, IKillable
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Enemy")
         {
-            
+            ps.Play();
             ApplyDamage(other.gameObject.GetComponent<CanKill>().damage);
             ApplyForce(other.gameObject);
         }
@@ -40,6 +42,7 @@ public class Killable : MonoBehaviour, IKillable
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ps = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
