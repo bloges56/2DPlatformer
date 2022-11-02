@@ -26,6 +26,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float groundDrag;
 
+    [SerializeField]
+    GameObject bottomLeftLimitGO;
+    [SerializeField]
+    GameObject topRightLimitGO;
+
+    Vector3 bottomLeftLimit;
+    Vector3 topRightLimit;
+
+
     Animator anim;
     SpriteRenderer render;
 
@@ -37,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = Physics2D.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         anim = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
+        bottomLeftLimit = bottomLeftLimitGO.transform.position;
+        topRightLimit = topRightLimitGO.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -87,17 +98,30 @@ public class PlayerMovement : MonoBehaviour
     {
         //determine direction to move
         Vector3 moveDirection = transform.right * horizontalInput;
-
-        if(grounded)
+    
+        if(moveDirection.x < 0 && transform.position.x <= bottomLeftLimit.x)
         {
-            //add force in move direction
-            rb.AddForce(moveDirection.normalized * speed * 10f, ForceMode2D.Force);
+            rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
+        }
+        else if(moveDirection.x > 0 && transform.position.x >= topRightLimit.x)
+        {
+           rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
         }
         else
         {
-            //add force in move direction
-            rb.AddForce(moveDirection.normalized * airSpeed * 10f, ForceMode2D.Force);
+            if(grounded)
+            {
+                //add force in move direction
+                rb.AddForce(moveDirection.normalized * speed * 10f, ForceMode2D.Force);
+            }
+            else
+            {
+                //add force in move direction
+        rb.AddForce(moveDirection.normalized * airSpeed * 10f, ForceMode2D.Force);
+            }
+            
         }
+        
         
     }
 
