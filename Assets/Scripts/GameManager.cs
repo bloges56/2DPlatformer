@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     GameObject loseText;
     [SerializeField]
     GameObject winText;
+    [SerializeField]
+    GameObject restartButton;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,11 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+
+    public void restartLevel()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,12 +38,14 @@ public class GameManager : MonoBehaviour
             if(player.GetComponent<PlayerMovement>().win)
             {
                 winText.SetActive(true);
+                restartButton.SetActive(true);
                 Time.timeScale = 0;
             }
         }
         else
         {
             loseText.SetActive(true);
+            restartButton.SetActive(true);
         }
     }
 }
